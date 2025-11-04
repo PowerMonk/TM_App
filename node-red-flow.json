@@ -1,0 +1,57 @@
+[
+  {
+    "id": "http_in_persona",
+    "type": "http in",
+    "z": "flow1",
+    "name": "Receive Persona",
+    "url": "/persona",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 100,
+    "wires": [["function_create_message"]]
+  },
+  {
+    "id": "function_create_message",
+    "type": "function",
+    "z": "flow1",
+    "name": "Create Greeting Message",
+    "func": "const nombre = msg.req.query.nombre || 'Desconocido';\nmsg.payload = `Bienvenido ${nombre}`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 350,
+    "y": 100,
+    "wires": [["debug_output", "http_response"]]
+  },
+  {
+    "id": "debug_output",
+    "type": "debug",
+    "z": "flow1",
+    "name": "Debug Message",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 590,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "http_response",
+    "type": "http response",
+    "z": "flow1",
+    "name": "Send Response",
+    "statusCode": "200",
+    "headers": {},
+    "x": 590,
+    "y": 120,
+    "wires": []
+  }
+]
