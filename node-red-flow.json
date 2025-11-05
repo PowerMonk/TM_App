@@ -4,7 +4,7 @@
     "type": "http in",
     "z": "flow1",
     "name": "Receive Persona",
-    "url": "/persona",
+    "url": "/alexa",
     "method": "get",
     "upload": false,
     "swaggerDoc": "",

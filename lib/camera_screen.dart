@@ -26,7 +26,6 @@ class _CameraScreenState extends State<CameraScreen> {
   int _currentCameraIndex = 1; // Start with front camera (index 1)
 
   // IMPORTANT: Replace this URL with your ngrok URL
-  // Example: "https://abc123.ngrok.io"
   final String ngrokUrl =
       "https://jubilant-jacquline-unintimately.ngrok-free.dev";
 
@@ -281,7 +280,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
     try {
       final response = await http.get(
-        Uri.parse("$ngrokUrl/persona?nombre=$label"),
+        Uri.parse("$ngrokUrl/alexa?nombre=$label"),
       );
       print('✅ HTTP Response: ${response.statusCode}');
       if (response.statusCode == 200) {
